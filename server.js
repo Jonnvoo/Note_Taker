@@ -9,7 +9,7 @@ const fs = require("fs")
 const uniqid = require("uniqid")
 
 //which port the server is running on.
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 //Checks the public folder to match the file before checking the routes.
 app.use(express.static("public"))
@@ -76,7 +76,7 @@ app.post('/api/notes', (req, res) => {
                 err: err
             })
         }
-        
+
         // This will send a json data response        
         res.json(dbFile);
 
